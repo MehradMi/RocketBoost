@@ -42,5 +42,9 @@ void Player::_process(double delta) {
 }
 
 void Player::_on_body_entered(godot::Node *body) {
-    godot::print_line(body->get_name());
+    godot::TypedArray<godot::StringName>body_groups = body->get_groups();
+    if (body->is_in_group("Goal"))
+        godot::print_line("Yay!!");
+    else if (body->is_in_group("Lose")) 
+        godot::print_line("Game Over :(");
 }

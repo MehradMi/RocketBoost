@@ -24,7 +24,7 @@ albedo_color = Color(0.047058824, 0.93333334, 0.99215686, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vonw3"]
 albedo_color = Color(0.14901961, 1, 0.105882354, 1)
 
-[node name="Level" type="Node3D" unique_id=2070901828]
+[node name="Level" type="Node3D" unique_id=2070901828 groups=["Goal"]]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=813661513]
 environment = SubResource("Environment_vonw3")
@@ -33,7 +33,7 @@ environment = SubResource("Environment_vonw3")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Floor" type="CSGBox3D" parent="." unique_id=1723459608]
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1723459608 groups=["Lose"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
 use_collision = true
 size = Vector3(30, 8, 5)
@@ -45,7 +45,7 @@ use_collision = true
 size = Vector3(3, 1, 4)
 material = SubResource("StandardMaterial3D_u52ul")
 
-[node name="LandingPad" type="CSGBox3D" parent="." unique_id=1430617340]
+[node name="LandingPad" type="CSGBox3D" parent="." unique_id=1430617340 groups=["Goal"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.5, 0)
 use_collision = true
 size = Vector3(3, 1, 4)
