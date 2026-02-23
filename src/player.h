@@ -6,7 +6,7 @@
 #include <godot_cpp/classes/rigid_body3d.hpp>
 
 class Player : public godot::RigidBody3D {
-    GDCLASS(Player, RigidBody3D);
+    GDCLASS(Player, godot::RigidBody3D);
 
     private:
         float thrust = 1000.0f;
@@ -30,7 +30,7 @@ class Player : public godot::RigidBody3D {
         void _ready();
         void _process(double delta) override;
         void _crash_sequence();
-        void _level_complete();
+        void _level_complete(godot::String next_level_file);
 };
 
 #endif

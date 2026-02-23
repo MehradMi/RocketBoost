@@ -1,6 +1,7 @@
 #include "register_types.h"
 
 #include "player.h"
+#include "landing_pad.h"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -13,6 +14,7 @@ void initialize_player_module(ModuleInitializationLevel p_level) {
 		return;
 	}
 	GDREGISTER_CLASS(Player);	
+	GDREGISTER_CLASS(LandingPad);
 }
 
 void uninitialize_player_module(ModuleInitializationLevel p_level) {

@@ -1,4 +1,5 @@
 #include "player.h"
+#include "landing_pad.h"
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/property_info.hpp>
 #include <godot_cpp/core/method_bind.hpp>
@@ -32,15 +33,19 @@ Player::~Player() {}
 /* Signals */
 void Player::_on_body_entered(godot::Node *body)
 {
-	if (body->is_in_group("Goal")) this->_level_complete();
-	else if (body->is_in_group("Lose")) this->_crash_sequence();
+	if (body->is_in_group("Goal")) {
+		LandingPad *pad = godot::Object::cast_to<LandingPad>(body);
+		if (pad) {
+			this->_level_complete(pad->get_level_filepath());
+		}
+	} else if (body->is_in_group("Lose")) this->_crash_sequence();
 }
 /* ================================== */
 
 /* System Functions */
 void Player::_ready()
 {
-	this->connect("body entered", godot::Callable(this, "_on_body_enered"));
+	this->connect("body entered", godot::Callable(this, "_on_body_entered"));
 }
 
 void Player::_process(double delta)
@@ -70,8 +75,8 @@ void Player::_crash_sequence()
 	this->get_tree()->reload_current_scene();
 }
 
-void Player::_level_complete() {
-	this->get_tree()->quit();
+void Player::_level_complete(godot::String next_leve_file) {
+	this->get_tree()->change_scene_to_file(next_leve_file);
 }
 
 		/* ================================== */
