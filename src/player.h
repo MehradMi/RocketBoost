@@ -9,16 +9,24 @@ class Player : public godot::RigidBody3D {
     GDCLASS(Player, RigidBody3D);
 
     private:
-        godot::Vector3 cur_position;
+        float thrust = 1000.0f;
 
     protected:
         static void _bind_methods();
 
     public: 
+        // Constructors and Destructors
         Player();
         ~Player();
+        
+        // Getters and Setters
+        void  set_thrust(const float p_thrust) { this->thrust = p_thrust; }
+        float get_thrust() { return this->thrust; }
 
+        // Signals
         void _on_body_entered(godot::Node *body);
+        
+        // 
         void _ready();
         void _process(double delta) override;
 };
