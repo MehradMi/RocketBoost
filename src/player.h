@@ -3,9 +3,10 @@
 
 #include <godot_cpp/classes/mesh_instance3d.hpp>
 #include <godot_cpp/classes/node3d.hpp>
+#include <godot_cpp/classes/rigid_body3d.hpp>
 
-class Player : public godot::Node3D {
-    GDCLASS(Player, Node3D);
+class Player : public godot::RigidBody3D {
+    GDCLASS(Player, RigidBody3D);
 
     private:
         godot::Vector3 cur_position;
@@ -17,6 +18,8 @@ class Player : public godot::Node3D {
         Player();
         ~Player();
 
+        void _on_body_entered(godot::Node *body);
+        void _ready();
         void _process(double delta) override;
 };
 

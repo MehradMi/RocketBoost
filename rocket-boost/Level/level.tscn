@@ -56,3 +56,5 @@ transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.984
 
 [node name="Player" parent="." unique_id=1835624852 instance=ExtResource("1_o6mkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, 0)
+contact_monitor = true
+max_contacts_reported = 5
