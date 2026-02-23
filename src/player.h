@@ -26,9 +26,11 @@ class Player : public godot::RigidBody3D {
         // Signals
         void _on_body_entered(godot::Node *body);
         
-        // 
+        // System Functions 
         void _ready();
         void _process(double delta) override;
+        void _crash_sequence();
+        void _level_complete();
 };
 
 #endif
